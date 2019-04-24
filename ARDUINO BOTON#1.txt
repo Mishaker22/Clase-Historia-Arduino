@@ -1,0 +1,32 @@
+int led = 12;
+int boton = 6;
+int estadoBoton;
+int estadoLed = 0;
+
+void setup()
+{
+  pinMode(led, OUTPUT);
+  pinMode (boton, INPUT);
+  Serial.begin(9600);
+  
+}
+
+void loop()
+{
+  estadoBoton = digitalRead(boton);
+  
+  if (estadoBoton ==HIGH) {
+  
+    estadoLed = !estadoLed;
+    
+    digitalWrite(led, estadoLed);
+  
+    if(estadoLed){
+      Serial.println("Encendido");
+    }else{
+      Serial.println("Apagado");
+      }
+ 
+}
+    delay(300);
+    }
